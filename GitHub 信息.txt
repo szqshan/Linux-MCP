@@ -1,0 +1,28 @@
+# GitHub 仓库信息
+
+## 仓库信息
+- GitHub用户名: szqshan
+- 仓库地址: https://github.com/szqshan/Linux-MCP
+- SSH仓库地址: git@github.com:szqshan/Linux-MCP.git
+
+## 开发环境设置
+- 本地SSH密钥已配置
+- 支持SSH认证方式推送代码
+
+## 项目描述
+Linux MCP Toolkit - 革命性的Linux服务器管理工具
+专为AI客户端设计的MCP服务器，支持自然语言管理Linux服务器
+
+## 主要特性
+- 支持Claude Desktop、Cursor、Windsurf等AI客户端
+- SSH连接管理
+- 命令执行和文件操作
+- 服务控制和Docker管理
+- 实时日志监控
+
+## 快速开始
+1. 克隆仓库: git clone git@github.com:szqshan/Linux-MCP.git
+2. 安装依赖: pip install -e .
+3. 配置AI客户端
+4. 开始使用！
+

@@ -1,0 +1,34 @@
+# PyPI 配置信息
+
+## 项目信息
+- 包名: linux-mcp-toolkit
+- 版本: 1.0.16
+- PyPI页面: https://pypi.org/project/linux-mcp-toolkit/
+
+## 发布命令
+```bash
+# 构建包
+python -m build
+
+# 上传到测试PyPI
+python -m twine upload --repository testpypi dist/*
+
+# 上传到正式PyPI
+python -m twine upload dist/*
+```
+
+## 安装命令
+```bash
+pip install linux-mcp-toolkit
+```
+
+## 开发环境要求
+- Python 3.8+
+- setuptools >= 61.0
+- wheel
+- twine
+
+## 注意事项
+- 发布前请确保版本号已更新
+- 测试包功能正常后再发布到正式PyPI
+- 保持CHANGELOG.md更新

@@ -1,0 +1,13 @@
+# 核心依赖
+paramiko>=2.7.0
+mcp>=1.0.0
+
+# 开发依赖（可选）
+pytest>=6.0.0
+black>=21.0.0
+flake8>=3.9.0
+mypy>=0.910
+
+# 文档依赖（可选）
+sphinx>=4.0.0
+sphinx-rtd-theme>=1.0.0

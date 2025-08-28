@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linux-mcp-toolkit"
+version = "1.0.16"
+authors = [
+    {name = "Linux MCP Toolkit Team", email = "contact@linuxmcp.com"}
+]
+description = "Enhanced Linux MCP Toolkit with Interactive Shell Support"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["linux", "ssh", "mcp", "system-administration", "remote-management", "interactive-shell"]
+dependencies = [
+    "paramiko>=2.7.0",
+    "mcp>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/linux-mcp/linux-mcp-toolkit"
+"Bug Reports" = "https://github.com/linux-mcp/linux-mcp-toolkit/issues"
+"Source" = "https://github.com/linux-mcp/linux-mcp-toolkit"
+Documentation = "https://linux-mcp-toolkit.readthedocs.io"
+
+[project.scripts]
+linux-mcp-toolkit = "linux_mcp_toolkit.main:main"
+linux-mcp = "linux_mcp_toolkit.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["linux_mcp_toolkit*"]
+
+[tool.setuptools.package-data]
+"linux_mcp_toolkit" = ["*.json", "*.yaml", "*.txt", "*.md"]
