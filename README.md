@@ -80,7 +80,7 @@ pip install -e .
         "HOST": "192.168.1.100",
         "PORT": "22",
         "USERNAME": "root",
-        "KEY_FILE": "/home/user/.ssh/id_rsa",
+        "KEY_FILE": "D:\\MCP\\linux.pem",
         "PASSPHRASE": "",
         "TIMEOUT": "30",
         "RETRY": "3"
