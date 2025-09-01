@@ -67,7 +67,9 @@ pip install -e .
 }
 ```
 
-#### 3. 高级配置（可选）
+#### 3. 安全配置方式（推荐）
+
+**方式A：SSH密钥认证（最安全）**
 ```json
 {
   "mcpServers": {
@@ -78,7 +80,8 @@ pip install -e .
         "HOST": "192.168.1.100",
         "PORT": "22",
         "USERNAME": "root",
-        "PASSWORD": "你的密码",
+        "KEY_FILE": "/home/user/.ssh/id_rsa",
+        "PASSPHRASE": "",
         "TIMEOUT": "30",
         "RETRY": "3"
       }
@@ -86,6 +89,84 @@ pip install -e .
   }
 }
 ```
+
+**方式B：系统环境变量（次推荐）**
+```json
+{
+  "mcpServers": {
+    "linux-mcp-toolkit": {
+      "command": "uvx",
+      "args": ["linux-mcp-toolkit"],
+      "env": {
+        "HOST": "192.168.1.100",
+        "PORT": "22",
+        "USERNAME": "root",
+        "PASSWORD": "$SSH_PASSWORD",
+        "KEY_FILE": "$SSH_KEY_PATH",
+        "TIMEOUT": "30",
+        "RETRY": "3"
+      }
+    }
+  }
+}
+```
+
+**方式C：密码认证（仅测试用）**
+```json
+{
+  "mcpServers": {
+    "linux-mcp-toolkit": {
+      "command": "uvx",
+      "args": ["linux-mcp-toolkit"],
+      "env": {
+        "HOST": "192.168.1.100",
+        "PORT": "22",
+        "USERNAME": "root",
+        "PASSWORD": "your_password",
+        "TIMEOUT": "30",
+        "RETRY": "3"
+      }
+    }
+  }
+}
+```
+
+#### 🔐 环境变量设置
+
+**Linux/macOS:**
+```bash
+# 设置密码
+export SSH_PASSWORD="your_secure_password"
+
+# 设置密钥路径
+export SSH_KEY_PATH="/home/user/.ssh/id_rsa"
+
+# 验证设置
+echo $SSH_PASSWORD
+echo $SSH_KEY_PATH
+```
+
+**Windows:**
+```cmd
+# 设置密码
+set SSH_PASSWORD=your_secure_password
+
+# 设置密钥路径
+set SSH_KEY_PATH=C:\Users\youruser\.ssh\id_rsa
+
+# 验证设置
+echo %SSH_PASSWORD%
+echo %SSH_KEY_PATH%
+```
+
+#### 🛡️ 安全最佳实践
+1. **优先使用SSH密钥**而非密码认证
+2. **设置正确的密钥权限**：`chmod 600 ~/.ssh/id_rsa`
+3. **避免在配置文件中存储明文密码**
+4. **使用系统环境变量**管理敏感信息
+5. **定期轮换密钥**提高安全性
+6. **为AI客户端创建专用用户**，避免使用root
+7. **使用密钥密码**保护私钥文件
 
 ### 🔧 验证安装
 
